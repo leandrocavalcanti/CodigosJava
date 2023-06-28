@@ -1,0 +1,46 @@
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+import java.util.Collections;
+
+public class Main
+{
+ 	public static void main(String[] args) {
+		System.out.println("____________________________");
+		System.out.println("Times do Fut - Morgados F.C");
+		System.out.println("____________________________");
+		
+		List<String> nomes = new ArrayList<>();
+		 Scanner teclado = new Scanner(System.in);
+		 String nome;
+		 
+		while(true){
+		    System.out.println ("Insira os nomes ou sair para encerrar");
+		    nome = teclado.next();
+	        
+	        if(nome.equalsIgnoreCase("sair")){
+	        break;
+	        }
+	        nomes.add(nome);
+		}
+		System.out.println("Nomes digitados:");
+        for (String n : nomes) {
+            System.out.println(n);
+        }
+	
+ 	    Collections.shuffle(nomes);
+
+        int totalNomes = nomes.size();
+        int numGrupos = totalNomes / 5;
+
+        for (int i = 1; i <= numGrupos; i++) {
+            System.out.println("Grupo " + i + ":");
+
+            for (int j = (i - 1) * 5; j < i * 5; j++) {
+                System.out.println(nomes.get(j));
+            }
+
+            System.out.println();
+ 	    }
+ 	}	
+}
